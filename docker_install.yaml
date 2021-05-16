@@ -1,6 +1,6 @@
 ---
 - name: Install docker
-  hosts: 
+  hosts: all
   gather_facts: yes
   become: true
 
@@ -64,10 +64,10 @@
         state: present
         update_cache: yes
       vars:
-      packages:
-      - docker-ce 
-      - docker-ce-cli 
-      - containerd.io
+        packages:
+        - docker-ce 
+        - docker-ce-cli 
+        - containerd.io
       notify:
         - docker status
 
